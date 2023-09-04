@@ -27,5 +27,12 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+      - name: Build project 1
+        run: |
+          cd first-project
+          mvn spring-boot:run -Dspring-boot.run.directory=./webApp1
+
+      - name: Build project 2
+        run: |
+          cd second-project
+          mvn spring-boot:run -Dspring-boot.run.directory=./webApp2
